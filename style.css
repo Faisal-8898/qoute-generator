@@ -28,6 +28,7 @@ body {
 }
 
 .qoute-text{
+  margin-top: 2rem;
   font-size: 2.75rem;
 }
 
@@ -45,6 +46,7 @@ body {
   font-weight: 300;
   font-style: italic;
 }
+
 
 .button-container{
   margin-top: 15px;
@@ -91,7 +93,19 @@ button:active{
   color: #4267B2;
   font-size: 1.3rem;
 }
+.copy-button{
+  width: 1rem;
+  float: right;
+  background-color: #d0d0d0;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
 
+.copy-button:hover{
+  filter: brightness(90%);
+  color: #5c5c5c;
+  font-size: 1.3rem;
+}
 
 /* Media Query : Tablet or Smaller */
 @media screen and (max-width: 1000px){
@@ -100,5 +114,8 @@ button:active{
    }
    .qoute-text{
     font-size: 2.5rem;
+   }
+   .qoute-author{
+    margin-bottom: 20px;
    }
 }
