@@ -2,7 +2,7 @@ const quoteContainer = document.getElementById("qoute-container");
 const quoteText = document.getElementById("quote1");
 const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
-const faceboolBtn = document.getElementById("facebook");
+const facebookBtn = document.getElementById("facebook");
 const copyBtn = document.getElementById("copyb");
 const newQuoteBtn = document.getElementById("new-quote");
 
@@ -52,10 +52,25 @@ function shareQuoteOnFacebook() {
 
   function copyText() {
     const textToCopy = `${quoteText.textContent} - ${authorText.textContent}`;
-    textToCopy.select();
-    textToCopy.setSelectionRange(0, 99999); // For mobile devices
-    //document.execCommand('copy');
+
+    // Create a temporary textarea element
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+  
+    // Select and copy the text
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand('copy');
+  
+    // Clean up
+    document.body.removeChild(textarea);
   }
+
+  newQuoteBtn.addEventListener('click',newQuote);
+  twitterBtn.addEventListener('click',tweetQuote);
+  facebookBtn.addEventListener('click',shareQuoteOnFacebook);
+  copyBtn.addEventListener('click',copyText);
 
 
 //
