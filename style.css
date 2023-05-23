@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
 
 html {
   box-sizing: border-box;
@@ -27,13 +28,13 @@ body {
  box-shadow: 0 10px 10px 10px rgba(0, 0,0 , 0.2);
 }
 
-.qoute-text{
+.quote-text{
   margin-top: 2rem;
   font-size: 2.75rem;
 }
 
 .long-qoute{
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .fa-quote-left{
