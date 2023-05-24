@@ -35,6 +35,6 @@ const a=[
         {
           "text": "Life is a learning experience, only if you learn.",
           "author": "Yogi Berra"
-        },
-        
-]
+        }
+
+];

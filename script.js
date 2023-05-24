@@ -1,3 +1,5 @@
+
+
 const quoteContainer = document.getElementById("qoute-container");
 const quoteText = document.getElementById("quote1");
 const authorText = document.getElementById("author");
@@ -41,6 +43,25 @@ function newQuote() {
   complete();
 }
 
+async function newQuotelocal() {
+    loading();
+    const quote = a[Math.floor(Math.random() * a.length)];
+    console.log(quote);
+    if (!quote.author) {
+        authorText.textContent = "Unknown";
+      } else {
+        authorText.textContent = quote.author;
+      }
+    
+      if (quote.text.length > 120) {
+        quoteText.classList.add("long-qoute");
+      } else {
+        quoteText.classList.remove("long-qoute");
+      }
+      quoteText.textContent = quote.text;
+      complete();
+    }
+
 //Get Qoutes From API
 async function getQuotes() {
     loading();
@@ -49,9 +70,10 @@ async function getQuotes() {
     const response = await fetch(apiUrl);
     apiQuotes = await response.json();
     newQuote();
-  } catch (error) {
-    alert(error);
-    //catch Error
+} catch (error) {
+    
+  //  newQuotelocal();
+      alert(error);
   }
 }
 
@@ -62,7 +84,7 @@ function tweetQuote() {
 }
 
 function shareQuoteOnFacebook() {
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(quoteText.textContent + ' - ' + authorText.textContent)}`;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(quoteText.textContent + ' - ' + authorText.textContent)}`;
     window.open(facebookUrl, '_blank');
   }
 
