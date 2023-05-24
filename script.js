@@ -5,11 +5,25 @@ const twitterBtn = document.getElementById("twitter");
 const facebookBtn = document.getElementById("facebook");
 const copyBtn = document.getElementById("copyb");
 const newQuoteBtn = document.getElementById("new-quote");
+const loader = document.getElementById('loader');
 
 let apiQuotes = [];
+//show loading
+function loading(){
+    loader.hidden=false;
+    quoteContainer.hidden=true;
+}
+
+//hideloading
+function complete(){
+    quoteContainer.hidden=false;
+    loader.hidden=true;
+}
 
 //show new quote
 function newQuote() {
+    loading();
+    
   // pick a raandom quote
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   if (!quote.author) {
@@ -24,10 +38,12 @@ function newQuote() {
     quoteText.classList.remove("long-qoute");
   }
   quoteText.textContent = quote.text;
+  complete();
 }
 
 //Get Qoutes From API
 async function getQuotes() {
+    loading();
   const apiUrl = "https://type.fit/api/quotes";
   try {
     const response = await fetch(apiUrl);
@@ -73,6 +89,7 @@ function shareQuoteOnFacebook() {
   copyBtn.addEventListener('click',copyText);
 
 
-//
-// OnLoad
+
 getQuotes();
+
+

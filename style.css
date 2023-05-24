@@ -57,6 +57,21 @@ body {
 .social-button{
   margin-right: 10px;;
 }
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #616161; 
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 button{
   cursor: pointer;
   font-size: 1.2rem;
@@ -106,6 +121,29 @@ button:active{
   filter: brightness(90%);
   color: #5c5c5c;
   font-size: 1.3rem;
+}
+
+@media screen and (max-width: 400px){
+  .quote-container{
+    margin: auto 10px;
+  }
+  .quote-text{
+    font-size: 2.5rem;
+  }
+  .quote-author{
+    margin-bottom: 20px;
+  }
+  .button-container{
+    flex-direction: column; /* Change the buttons' position to a column layout */
+  }
+  .button{
+    height: 3.5rem;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Add margin between buttons */
+  }
+  .social-button{
+    margin-bottom: 20px;
+  }
 }
 
 /* Media Query : Tablet or Smaller */
